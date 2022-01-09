@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-search',
   templateUrl: './search.page.html',
-  styleUrls: ['./search.page.css'],
+  styleUrls: ['./search.page.scss'],
 })
 export class SearchPage {
   constructor() {}
