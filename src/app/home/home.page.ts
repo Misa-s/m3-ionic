@@ -1,15 +1,25 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-home',
-  template: `
-  
-
-    <ion-content class="ion-padding">
-      <h1>Home</h1>
-    </ion-content>
-  `,
+  templateUrl: 'home.page.html',
 })
 export class HomePage {
-  constructor() {}
+  constructor(
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar
+  ) {
+    this.initializeApp();
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
+  }
 }
